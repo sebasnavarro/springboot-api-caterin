@@ -13,27 +13,27 @@ import javax.persistence.Table;
 
 @Entity
 @Table(name = "PRECIART")
-public class PrecioArticulo implements Serializable {
+public class PriceProducts implements Serializable {
    
 	@Embeddable
 	static class Pk implements Serializable {
 
 		@ManyToOne(fetch=FetchType.LAZY)
 		@JoinColumn(name = "CDARTICULO")
-		private Articulo articulo;
+		private Products products;
 		
 		@Column(name = "CDPRECIO", nullable = false, updatable = false)
-		private String idPrecio;
+		private String idPrice;
 		
-		public Articulo getArticulo() {
-			return articulo;
+	    public Products getProducts() {
+			return products;
 		}
 
-		public void setArticulo(Articulo articulo) {
-			this.articulo = articulo;
+		public void setProducts(Products products) {
+			this.products = products;
 		}
-	
-	    private static final long serialVersionUID = 1L;
+
+		private static final long serialVersionUID = 1L;
 	}
 
 	@EmbeddedId
@@ -51,12 +51,12 @@ public class PrecioArticulo implements Serializable {
 	}
 	
     
-	public String getIdPrecio() {
-		return id.idPrecio;
+	public String getIdPrice() {
+		return id.idPrice;
 	}
 
-	public void setIdPrecio(String idPrecio) {
-		this.id.idPrecio = idPrecio;
+	public void setIdPrice(String idPrice) {
+		this.id.idPrice = idPrice;
 	}
 
 

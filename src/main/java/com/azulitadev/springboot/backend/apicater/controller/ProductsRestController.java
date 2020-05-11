@@ -37,15 +37,17 @@ public class ProductsRestController {
 	@GetMapping
 	public ResponseEntity<?> getAll() {
 	List<Map<String, Object>> list = new ArrayList<Map<String, Object>>();
-	Map<String, Object> response = new HashMap<>();
+	Map<String, Object> response = null;
 	List<Products> products = productsService.findAll();
-	for(Products p : products) {
-		response.put("category", p.getCategory());
-		response.put("name", p.getName().toString());
-		response.put("price", p.getPrices().get(p.getPrices().size()-1).getPrice());
-		response.put("quantity", p.getQuantity());
-		response.put("image", p.getImage());
-		response.put("id", p.getId().toString());
+	
+	for (int i=0; i<products.size(); i++) {
+		response = new HashMap<String, Object>();
+		response.put("category", products.get(i).getCategory());
+		response.put("name", products.get(i).getName());
+		response.put("price", products.get(i).getPrices().get(products.get(i).getPrices().size()-1).getPrice());
+		response.put("quantity", products.get(i).getQuantity());
+		response.put("image", products.get(i).getImage());
+		response.put("id", products.get(i).getId());
 		list.add(response);
 	}
 	int count = list.size();

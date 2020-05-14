@@ -6,6 +6,8 @@ import java.util.List;
 import java.util.Map;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.DataAccessException;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
@@ -15,6 +17,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
+import com.azulitadev.springboot.backend.apicater.models.entity.IProductsProjection;
 import com.azulitadev.springboot.backend.apicater.models.entity.Products;
 import com.azulitadev.springboot.backend.apicater.models.entity.ProductsDto;
 import com.azulitadev.springboot.backend.apicater.models.service.IProductsService;
@@ -56,6 +59,20 @@ public class ProductsRestController {
 	articuloDto.setProducts(list);
 	return new ResponseEntity<ProductsDto>(articuloDto, HttpStatus.OK);
 	}
+	
+	@RequestMapping(value = "/page/{page}", method = RequestMethod.GET, produces="application/json")
+	public  Page<IProductsProjection> getAll(@PathVariable Integer page) {
+  
+	return productsService.find(PageRequest.of(page, 6));
+	}
+  
+	@GetMapping("/{terminal}")
+	public List<IProductsProjection> getByTerminal(@PathVariable String terminal) {
+
+		return productsService.finByTerminal(terminal);
+	}
+
+	
 	
 	@ApiOperation(value = "Return essential items")
     @ApiResponses(value = { @ApiResponse(code =100, message="100 is the message"),  @ApiResponse(code = 200,message="Successful return essential items"),

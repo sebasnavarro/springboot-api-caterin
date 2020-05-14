@@ -1,8 +1,0 @@
-INSERT INTO articulo(cdarticulo, dsarticul1, imagen, cdalmacend, stock) values('1','PAN CASERO','https://m.eldiario.es/fotos/Titulo-Christopher1710_EDIIMA20170307_0434_1.jpg','001',10)
-INSERT INTO articulo(cdarticulo, dsarticul1, imagen, cdalmacend, stock) values('2','ARROZ CON POLLO','https://s3.amazonaws.com/menuperu.pe/media/receta/Arroz+con+pollo-2951.jpeg','001',10)
-INSERT INTO articulo(cdarticulo, dsarticul1, imagen, cdalmacend, stock) values('3','EMPANADA CASERA','https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcTvnaAJBYEgk3yQDiPCQJfvOd-DxA8sXquLiBhttps://cdn.kiwilimon.com/recetaimagen/69/11549.jpg','001',10)
-INSERT INTO articulo(cdarticulo, dsarticul1, imagen, cdalmacend, stock) values('4','JUGO DE NARANJA','https://cdn2.cocinadelirante.com/sites/default/files/styles/gallerie/public/images/2017/11/jugonaranja.jpg','001',10)
-INSERT INTO preciart(cdprecio,mtoprecio,cdarticulo) values('00001',2.50,'1')
-INSERT INTO preciart(cdprecio,mtoprecio,cdarticulo) values('00002',12.00,'2')
-INSERT INTO preciart(cdprecio,mtoprecio,cdarticulo) values('00003',4.50,'3')
-INSERT INTO preciart(cdprecio,mtoprecio,cdarticulo) values('00004',3.00,'4')

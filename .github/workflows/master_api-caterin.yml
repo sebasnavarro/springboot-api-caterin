@@ -28,5 +28,5 @@ jobs:
       with:
         app-name: 'api-caterin'
         slot-name: 'production'
-        publish-profile: ${{ secrets.AzureAppService_PublishProfile_846e1eabbffb42339faa9f8894acc912 }}
+        publish-profile: ${{ secrets.AzureAppService_PublishProfile_65cc0919d7d3421f8ee2979c1eb1dc91 }}
         package: '${{ github.workspace }}/target/*.jar'
